@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html >
+  <head profile="http://www.w3.org/2005/10/profile">
+  <link rel="icon" 
+    type="image/png" 
+    href="/assets/favicon.png" />
+    <meta name="viewport" content="width=device-width;user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+  </head>
+
+  <style>
+    .inner {
+      background-color : red;
+    }
+
+    .inner > div {
+      height : 200px;
+      width : 100%;
+    }
+  </style>
+
+  <body>
+    <div class="inner"></div>
+    <script src="pep.js"></script>
+    <script src="toDOM.js"></script>
+    <script type="text/javascript">
+      sand.require('DOM/handle', function(r) {
+        var inner = document.querySelector('.inner');
+        r.handle(inner).drag({
+          start : function() {
+
+          },
+          drag : function() {
+
+          },
+          end : function() {
+            
+          }
+        })
+      });
+    </script>
+    <script type="text/javascript">
+      var inner = document.querySelector('.inner');
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      };
+
+      for (var i = -1; i < 20; i++) {
+        var div = inner.appendChild(document.createElement('div'));
+        div.style.backgroundColor = getRandomColor();
+      }
+    </script>
+  </body>
+</html>

@@ -4,6 +4,7 @@
   <link rel="icon" 
     type="image/png" 
     href="/assets/favicon.png" />
+
     <meta name="viewport" content="width=device-width;user-scalable=no,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
   </head>
 
@@ -21,9 +22,16 @@
   <body>
     <div class="inner"></div>
     <script src="pep.js"></script>
-    <script src="toDOM.js"></script>
+    <script src="sand.js"></script>
+    <script src="Seed.js"></script>
+    <script src="core.merged.js"></script>
+    <script src="geo.merged.js"></script>
+
+    <script src="DOM.merged.js"></script>
+    <script src="Gesture.js"></script>
+
     <script type="text/javascript">
-      sand.require('DOM/handle', function(r) {
+      sand.require('DOM/handle', 'core/Array/*', function(r) {
         var inner = document.querySelector('.inner');
         r.handle(inner).drag({
           start : function() {
